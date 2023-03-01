@@ -13,9 +13,11 @@ app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/login.html");
 });
 
-app.get("/login/:userID", (req, res) => {
+app.post("/login", (req, res) => {
 	if (req.body.PASS === process.env.login_pass) {
-		res.sendFile(__dirname + "/index.html");
+		app.get("/:req.body.ID", (req, res) => {
+			res.sendFile(__dirname + "/index.html");
+		});
 	}else{
 		res.send("passgatigau");
 	};
