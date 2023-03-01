@@ -40,6 +40,8 @@
           margin: 0.25rem;
           width: 80px;
           text-align: center;
+          color: white;
+          font-size: 1.25rem;
         }
         #text:focus {
           outline: none;
@@ -70,27 +72,24 @@
 <body>
     <ul id="messages"></ul>
     <form id="form" action="">
-      <input id="text" placeholder="WriteName">
+      <div id="text"><%= data %></div>
       <input id="input" autocomplete="off" /><button>Send</button>
     </form>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
         let socket = io();
-
         const form = document.getElementById("form");
         const input = document.getElementById("input");
         const messages = document.getElementById("messages");
         const text = document.getElementById("text");
-
         form.addEventListener("submit", function(e) {
             e.preventDefault();
-            if (input.value　&& text.value) {
-                socket.emit("chat message", text.value + ' : ' + input.value);
+            if (input.value) {
+                socket.emit("chat message", text.innerText + ' : ' + input.value);
                 input.value = "";
             }
         });
-
         socket.on("chat message", function(msg) {
             let item = document.createElement("li");
             item.textContent = msg;

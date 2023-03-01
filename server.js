@@ -1,13 +1,28 @@
 const express = require("express");
+const bodyParser = require("body-parser");
+//const ejs = require("ejs");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const io = require("socket.io")(server);
 const PORT = 3000;
+const login_pass = "chankoma";
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
-	res.sendFile(__dirname + "/index.html");
+	res.sendFile(__dirname + "/login.html");
+});
+
+app.post("/login", (req, res) => {
+	if (req.body.PASS === login_pass) {
+		//res.sendFile(__dirname + "/index.html");
+		res.render("index", {data : req.body.ID});
+	}else{
+		res.send("miss!");
+	};
 });
 
 io.on("connection", (socket) => {
@@ -20,6 +35,6 @@ io.on("connection", (socket) => {
 });
 
 
-server.listen(PORT, () => {
+server.listen(process.env.PORT || PORT, () => {
 	console.log("listening on 3000");
 });
