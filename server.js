@@ -10,6 +10,10 @@ app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/login.html");
 });
 
+app.post("/login", (req, res) => {
+	res.send(res.params)
+});
+
 io.on("connection", (socket) => {
 	console.log("connected user");
 
