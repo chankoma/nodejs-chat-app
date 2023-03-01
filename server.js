@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-	res.send(res.params)
+	res.send(req.body)
 });
 
 io.on("connection", (socket) => {
