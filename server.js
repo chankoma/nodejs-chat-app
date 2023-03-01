@@ -6,7 +6,6 @@ const http = require("http");
 const server = http.createServer(app);
 const io = require("socket.io")(server);
 const PORT = 3000;
-const login_pass = "chankoma";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -17,7 +16,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-	if (req.body.PASS === login_pass) {
+	if (req.body.PASS === process.env.login_pass) {
 		//res.sendFile(__dirname + "/index.html");
 		res.render("index", {data : req.body.ID});
 	}else{
