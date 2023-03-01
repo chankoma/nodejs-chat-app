@@ -17,8 +17,8 @@ app.get("/", (req, res) => {
 
 app.post("/login", (req, res) => {
 	if (req.body.PASS === process.env.login_pass) {
-		//res.sendFile(__dirname + "/index.html");
-		res.render("index.ejs", {data : req.body.ID});
+		res.sendFile(__dirname + "/index.html");
+		//res.render("index.ejs", {data : req.body.ID});
 	}else{
 		res.send("miss!");
 	};
