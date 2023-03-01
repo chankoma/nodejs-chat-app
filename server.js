@@ -13,13 +13,11 @@ app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/login.html");
 });
 
-app.post("/login", (req, res) => {
+app.get("/login", (req, res) => {
 	if (req.body.PASS === process.env.login_pass) {
-		app.get("/" + req.body.ID, (req, res) => {
-			res.sendFile(__dirname + "/index.html");
-		});
+		res.sendFile(__dirname + "/index.html");
 	}else{
-		res.send("passgatigau");
+		res.send("miss!");
 	};
 });
 
