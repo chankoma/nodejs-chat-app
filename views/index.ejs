@@ -90,7 +90,7 @@
             socket.emit("chat message", text.innerText + "がログインしました。");
         };
         
-        window.addEventListener("popstate", () = > {
+        window.addEventListener("popstate", function(e) {
             //e.preventDefault();
             socket.emit("chat message", text.innerText + "がログアウトしました。");
         });
