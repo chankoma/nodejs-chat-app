@@ -85,10 +85,16 @@
         const messages = document.getElementById("messages");
         const text = document.getElementById("text");
 
-　　　　　window.onload = function(e) {
-            e.preventDefault();
-            socket.emit("chat message", text.innerText + "がログインしました。")
+        window.onload = function(e) {
+            //e.preventDefault();
+            socket.emit("chat message", text.innerText + "がログインしました。");
         };
+        
+        window.onunload = function(e) {
+            //e.preventDefault();
+            socket.emit("chat message", text.innerText + "がログアウトしました。");
+        };
+        
 
         form.addEventListener("submit", function(e) {
             e.preventDefault();
