@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 
 app.post("/login", (req, res) => {
 	if (req.body.PASS === process.env.login_pass) {
-		app.get("/:req.body.ID", (req, res) => {
+		app.get("/" + req.body.ID, (req, res) => {
 			res.sendFile(__dirname + "/index.html");
 		});
 	}else{
