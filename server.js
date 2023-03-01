@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const ejs = require("ejs");
+//const ejs = require("ejs");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
@@ -18,7 +18,7 @@ app.get("/", (req, res) => {
 app.post("/login", (req, res) => {
 	if (req.body.PASS === process.env.login_pass) {
 		res.sendFile(__dirname + "/index.html");
-		//res.render("index", {data : req.body.ID});
+		//res.render("index.ejs", {data : req.body.ID});
 	}else{
 		res.send("miss!");
 	};
