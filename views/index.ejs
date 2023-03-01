@@ -85,6 +85,11 @@
         const messages = document.getElementById("messages");
         const text = document.getElementById("text");
 
+　　　　　window.onLoad = function(e) {
+            e.preventDefault();
+            soket.emit("chat message", text.innerText + "がログインしました。")
+        };
+
         form.addEventListener("submit", function(e) {
             e.preventDefault();
             if (input.value) {
