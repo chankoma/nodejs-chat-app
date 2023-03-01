@@ -13,9 +13,11 @@ app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/login.html");
 });
 
-app.post("/", (req, res) => {
-	if (req.body.ID === koma && req.body.PASS === koma) {
-		res.sendFile(__dirname + "/index.html")
+app.post("/login", (req, res) => {
+	if (req.body.ID === "koma" && req.body.PASS === "koma") {
+		res.send("ok");
+	}else{
+		res.send("no");
 	};
 });
 
