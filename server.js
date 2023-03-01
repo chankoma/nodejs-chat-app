@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const ejs = require("ejs");
+//const ejs = require("ejs");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
@@ -9,7 +9,7 @@ const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.set("view engine", "ejs");
+//app.set("view engine", "ejs");
 
 app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/login.html");
