@@ -90,6 +90,8 @@
             socket.emit("chat message", text.innerText + "がログインしました。");
         };
         
+        history.replaceState(null, null, null);
+        
         window.addEventListener("popstate", function(e) {
             //e.preventDefault();
             socket.emit("chat message", text.innerText + "がログアウトしました。");
