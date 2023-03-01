@@ -1,9 +1,12 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const http = require("http");
 const server = http.createServer(app);
 const io = require("socket.io")(server);
 const PORT = 3000;
+
+app.use(bodyParser.urlenncoded({ extended: true }));
 
 
 app.get("/", (req, res) => {
@@ -11,7 +14,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-	res.send("hello")
+	res.send(req.body)
 });
 
 io.on("connection", (socket) => {
