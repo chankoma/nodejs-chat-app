@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 
 app.post("/login", (req, res) => {
 	if (req.body.ID === "koma" && req.body.PASS === "koma") {
-		res.send("ok");
+		res.sendFile(__dirname + "/index.html");
 	}else{
 		res.send("no");
 	};
