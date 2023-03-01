@@ -14,10 +14,10 @@ app.get("/", (req, res) => {
 });
 
 app.post("/", (req, res) => {
-	if (req.body.ID === "koma" && req.body.PASS === "koma") {
+	if (req.body.PASS === process.env.login_pass) {
 		res.sendFile(__dirname + "/index.html");
 	}else{
-		res.send("no");
+		res.send("passgatigau");
 	};
 });
 
