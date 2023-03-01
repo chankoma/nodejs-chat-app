@@ -8,8 +8,6 @@ const PORT = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.set("view engine", "ejs");
-
 
 app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/login.html");
@@ -17,7 +15,7 @@ app.get("/", (req, res) => {
 
 app.post("/login", (req, res) => {
 	if (req.body.PASS === process.env.login_pass) {
-		res.render("index", {id_data:req.body.ID});
+		res.sendFile(__dirname + "/index.html");
 	}else{
 		res.send("miss!");
 	};
