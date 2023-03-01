@@ -6,7 +6,7 @@ const server = http.createServer(app);
 const io = require("socket.io")(server);
 const PORT = 3000;
 
-app.use(bodyParser.urlenncoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 
 app.get("/", (req, res) => {
