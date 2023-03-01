@@ -90,10 +90,9 @@
             socket.emit("chat message", text.innerText + "がログインしました。");
         };
         
-        window.onunload = function(e) {
-            //e.preventDefault();
+        window.addEventListener("unload", () = > {
             socket.emit("chat message", text.innerText + "がログアウトしました。");
-        };
+        });
         
 
         form.addEventListener("submit", function(e) {
