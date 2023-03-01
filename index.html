@@ -76,6 +76,7 @@
         const form = document.getElementById("form");
         const input = document.getElementById("input");
         const messages = document.getElementById("messages");
+        const text = document.getElementById("text");
 
         form.addEventListener("submit", function(e) {
             e.preventDefault();
@@ -87,7 +88,7 @@
 
         socket.on("chat message", function(msg) {
             let item = document.createElement("li");
-            item.textContent = msg;
+            item.textContent = text.value & ' : ' & msg;
             messages.appendChild(item);
         });
     </script>
