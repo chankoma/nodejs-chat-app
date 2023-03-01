@@ -93,7 +93,7 @@
         window.addEventListener("popstate", () = > {
             //e.preventDefault();
             socket.emit("chat message", text.innerText + "がログアウトしました。");
-        )};
+        });
         
 
         form.addEventListener("submit", function(e) {
