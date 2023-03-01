@@ -89,7 +89,7 @@
 
         socket.on("chat message", function(msg) {
             let item = document.createElement("li");
-            item.textContent = text.value & ' : ' & msg;
+            item.textContent = text.value + ' : ' + msg;
             messages.appendChild(item);
         });
     </script>
