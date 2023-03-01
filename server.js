@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
 	res.sendFile(__dirname + "/login.html");
 });
 
-app.post("/login", (req, res) => {
+app.post("/", (req, res) => {
 	if (req.body.ID === koma && req.body.PASS === koma) {
 		res.sendFile(__dirname + "/index.html")
 	};
