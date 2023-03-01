@@ -14,7 +14,9 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-	res.send(req.body.ID)
+	if (req.body.ID === koma && req.body.PASS === koma) {
+		res,sendFile(__dirname + "/index.html")
+	};
 });
 
 io.on("connection", (socket) => {
