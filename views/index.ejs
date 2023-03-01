@@ -40,11 +40,8 @@
           margin: 0.25rem;
           width: 80px;
           text-align: center;
-<<<<<<< HEAD
           color: white;
           font-size: 1.25rem;
-=======
->>>>>>> 18adaf98a10138a841acbb759261622a642cd0bc
         }
         #text:focus {
           outline: none;
@@ -82,15 +79,12 @@
     <script src="/socket.io/socket.io.js"></script>
     <script>
         let socket = io();
-<<<<<<< HEAD
-=======
 
->>>>>>> 18adaf98a10138a841acbb759261622a642cd0bc
         const form = document.getElementById("form");
         const input = document.getElementById("input");
         const messages = document.getElementById("messages");
         const text = document.getElementById("text");
-<<<<<<< HEAD
+L
         form.addEventListener("submit", function(e) {
             e.preventDefault();
             if (input.value) {
@@ -98,7 +92,6 @@
                 input.value = "";
             }
         });
-=======
 
         form.addEventListener("submit", function(e) {
             e.preventDefault();
@@ -108,7 +101,6 @@
             }
         });
 
->>>>>>> 18adaf98a10138a841acbb759261622a642cd0bc
         socket.on("chat message", function(msg) {
             let item = document.createElement("li");
             item.textContent = msg;
@@ -120,8 +112,4 @@
         });
     </script>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 18adaf98a10138a841acbb759261622a642cd0bc
