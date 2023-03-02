@@ -101,12 +101,12 @@
             socket.emit("chat message", text.innerText + "がログインしました。");
         };
         
-        history.replaceState(null, null, null);
         
         logout.addEventListener("click", function(e) {
             //e.preventDefault();
             socket.emit("chat message", text.innerText + "がログアウトしました。");
             location.href = "https://chankoma-chat-app.herokuapp.com/"
+            history.replaceState(null, null, null);
         });
         
 
