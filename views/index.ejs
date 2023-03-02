@@ -115,6 +115,7 @@
             if (input.value) {
                 socket.emit("chat message", text.innerText + ' : ' + input.value);
                 input.value = "";
+                input.select();
             }
         });
 
