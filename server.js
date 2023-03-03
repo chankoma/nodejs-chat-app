@@ -32,6 +32,7 @@ io.on("connection", (socket) => {
 	//console.log("connected user");
 	for (let i = 0; i < target.length; i++) {
 		socket.on("chat message" + i, (msg) => {
+			console.log(msg);
 			io.emit("chat message" + i, msg);
 		});
 	};
