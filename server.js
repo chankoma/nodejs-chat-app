@@ -12,7 +12,8 @@ const count = 2;
 const target = [];
 
 for (let i = 1; i < count + 1; i++) {
-	target.push("process.env.login_pass_" + i); 
+	let code = "login_pass_" + i;
+	target.push(process.env.code); 
 	console.log(taget[i - 1]);
 };
 
