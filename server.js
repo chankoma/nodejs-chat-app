@@ -30,9 +30,9 @@ app.post("/login", (req, res) => {
 
 io.on("connection", (socket) => {
 	console.log("connected user");
-	socket.on("chat message1", (msg) => {
+	socket.on("chat message", (msg) => {
 		console.log(msg);
-		io.emit("chat message1", msg);
+		io.emit("chat message", msg);
 	});
 });
 
