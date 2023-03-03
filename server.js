@@ -11,6 +11,7 @@ const target = [
 	process.env.login_pass_1, 
 	process.env.login_pass_2
 	];
+const message = ["apple", "orange"];
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -23,16 +24,17 @@ app.get("/", (req, res) => {
 app.post("/login", (req, res) => {
 	for (let i = 0; i < target.length; i++) {
 		if (req.body.PASS === target[i]) {
-			res.render("index", {data : req.body.ID, fields : i});
+			res.render("index", {data : req.body.ID, fields : i, messages : message[i]});
 		};
 	};
 });
 
 io.on("connection", (socket) => {
 	console.log("connected user");
-	socket.on("chat message", (msg) => {
+	for (let i = 0; i < message.length; i++) {
+	socket.on(message[i], (msg) => {
 		console.log(msg);
-		io.emit("chat message", msg);
+		io.emit(message[i], msg);
 	});
 });
 
