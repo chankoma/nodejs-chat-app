@@ -7,15 +7,10 @@ const server = http.createServer(app);
 const io = require("socket.io")(server);
 const PORT = 3000;
 
-const count = 2;
-
-const target = [];
-
-for (let i = 1; i < count + 1; i++) {
-	let code = "login_pass_" + i;
-	target.push(process.env.code); 
-	console.log(taget[i - 1]);
-};
+const target = [
+	process.env.login_pass_1,
+	process.env.login_pass_2
+];
 
 const message = ["apple", "orange"];
 
