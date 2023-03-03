@@ -26,6 +26,7 @@ app.post("/login", (req, res) => {
 		if (req.body.PASS === target[i]) {
 			res.render("index", {data : req.body.ID, fields : i, mess : message[i]});
 		};
+		res.send("miss!");
 	};
 });
 
