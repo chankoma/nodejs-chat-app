@@ -7,7 +7,10 @@ const server = http.createServer(app);
 const io = require("socket.io")(server);
 const PORT = 3000;
 
-const chat_fields = 2;
+const target = [
+	process.env.login_pass_1, 
+	process.env.logon_pass_2
+	];
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -18,9 +21,8 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-	for (let i = 1; i < chat_fields + 1; i++) {
-		let target = "login_pass_" + i;
-		if (req.body.PASS === process.env.target) {
+	for (let i = 0; i < target.length; i++) {
+		if (req.body.PASS === target[i]) {
 			res.render("index", {data : req.body.ID});
 		};
 	};
