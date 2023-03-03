@@ -7,10 +7,14 @@ const server = http.createServer(app);
 const io = require("socket.io")(server);
 const PORT = 3000;
 
-const target = [
-	process.env.login_pass_1, 
-	process.env.login_pass_2
-	];
+const count = 2;
+
+const target = [];
+
+for (let i = 1; i < count + 1; i++) {
+	target.push("process.env.login_pass_" + i); 
+};
+
 const message = ["apple", "orange"];
 
 app.use(bodyParser.urlencoded({ extended: true }));
