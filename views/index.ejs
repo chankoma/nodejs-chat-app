@@ -112,8 +112,8 @@
 
         window.onload = function(e) {
             //e.preventDefault();
-            console.log(field);
-            socket.emit("chat message" + field, text.innerText + "がログインしました。");
+            //console.log(field);
+            socket.emit("chat message" + field.innerText, text.innerText + "がログインしました。");
         };
         
         
