@@ -23,11 +23,11 @@ app.get("/", (req, res) => {
 
 app.post("/login", (req, res) => {
 	for (let i = 0; i < target.length; i++) {
-		if (req.body.PASS === target[i]) {
+		if (req.body.ID && req.body.PASS === target[i]) {
 			res.render("index", {data : req.body.ID, fields : i, mess : message[i]});
 		};
-		res.send("miss!");
 	};
+
 });
 
 io.on("connection", (socket) => {
@@ -38,6 +38,7 @@ io.on("connection", (socket) => {
 			io.emit(message[i], msg);
 		});
 	};
+        res.send("miss");
 });
 
 
