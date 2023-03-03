@@ -113,7 +113,7 @@
         window.onload = function(e) {
             //e.preventDefault();
             console.log(field.innerText);
-            socket.emit("chat message1", text.innerText + "がログインしました。");
+            socket.emit("chat message", text.innerText + "がログインしました。");
         };
         
         
