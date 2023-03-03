@@ -7,6 +7,8 @@ const server = http.createServer(app);
 const io = require("socket.io")(server);
 const PORT = 3000;
 
+const chat_fields = 2;
+
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
@@ -16,11 +18,10 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-	if (req.body.PASS === process.env.login_pass) {
-		//res.sendFile(__dirname + "/index.html");
-		res.render("index", {data : req.body.ID});
-	}else{
-		res.send("miss!");
+	for (let i = 1; i < chat_fields + 1; i++) {
+		if (req.body.PASS === process.env.login_pass + i) {
+			res.render("index", {data : req.body.ID});
+		};
 	};
 });
 
