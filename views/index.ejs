@@ -94,10 +94,11 @@
     <ul id="messages"></ul>
     <button id="logout">Logout</button>
     <form id="form" action="">
-      <div id="text"><%= data + "_" + fields %></div>
+      <div id="text"><%= data %></div>
       <input id="input" autocomplete="off" /><button>Send</button>
     </form>
     <div id="field" style="display: none"><%= fields %></div>
+    <div id="message" style="display: none"><%= messages %></div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
@@ -109,11 +110,12 @@
         const text = document.getElementById("text");
         const logout = document.getElementById("logout");
         const field = document.getElementById("field");
+        const message = document.getElementById("message");
 
         window.onload = function(e) {
             //e.preventDefault();
-            console.log(field.innerText);
-            socket.emit("chat message", text.innerText + "がログインしました。");
+            //console.log(field.innerText);
+            socket.emit(message.innerText, text.innerText + "がログインしました。");
         };
         
         
