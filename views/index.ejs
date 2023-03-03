@@ -110,13 +110,13 @@
 
         window.onload = function(e) {
             //e.preventDefault();
-            socket.emit("chat message" + <% fields %>, text.innerText + "がログインしました。");
+            socket.emit("chat message", text.innerText + "がログインしました。");
         };
         
         
         logout.addEventListener("click", function(e) {
             //e.preventDefault();
-            socket.emit("chat message" + <% fields %>, text.innerText + "がログアウトしました。");
+            socket.emit("chat message", text.innerText + "がログアウトしました。");
             location.href = "https://chankoma-chat-app.herokuapp.com/"
             history.replaceState(null, null, null);
         });
@@ -125,13 +125,13 @@
         form.addEventListener("submit", function(e) {
             e.preventDefault();
             if (input.value) {
-                socket.emit("chat message" + <% fields %>, text.innerText + ' : ' + input.value);
+                socket.emit("chat message", text.innerText + ' : ' + input.value);
                 input.value = "";
                 input.select();
             }
         });
 
-        socket.on("chat message" + <% fields %>, function(msg) {
+        socket.on("chat message", function(msg) {
             let item = document.createElement("li");
             item.textContent = msg;
             messages.appendChild(item);
