@@ -9,7 +9,7 @@ const PORT = 3000;
 
 const target = [
 	process.env.login_pass_1, 
-	process.env.logon_pass_2
+	process.env.login_pass_2
 	];
 
 app.use(bodyParser.urlencoded({ extended: true }));
