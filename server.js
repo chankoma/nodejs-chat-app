@@ -32,10 +32,11 @@ app.post("/login", (req, res) => {
 io.on("connection", (socket) => {
 	console.log("connected user");
 	for (let i = 0; i < message.length; i++) {
-	socket.on(message[i], (msg) => {
-		console.log(msg);
-		io.emit(message[i], msg);
-	});
+		socket.on(message[i], (msg) => {
+			console.log(msg);
+			io.emit(message[i], msg);
+		});
+	};
 });
 
 
