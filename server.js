@@ -30,10 +30,10 @@ app.post("/login", (req, res) => {
 
 io.on("connection", (socket) => {
 	//console.log("connected user");
-	For (let i = 0; i < target.length; i++) {
+	for (let i = 0; i < target.length; i++) {
 		socket.on("chat message", (msg) => {
 			io.emit("chat message", msg);
-		})
+		});
 	};
 });
 
