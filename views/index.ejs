@@ -108,10 +108,11 @@
         const messages = document.getElementById("messages");
         const text = document.getElementById("text");
         const logout = document.getElementById("logout");
+        const field = document.getElementById("field");
 
         window.onload = function(e) {
             //e.preventDefault();
-            const field = document.getElementById("field");
+            console.log(field);
             socket.emit("chat message" + field, text.innerText + "がログインしました。");
         };
         
