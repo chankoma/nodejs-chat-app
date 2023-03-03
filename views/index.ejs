@@ -97,6 +97,7 @@
       <div id="text"><%= data %></div>
       <input id="input" autocomplete="off" /><button>Send</button>
     </form>
+    <div id="field" style="display: none"><%= fields %></div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script>
@@ -110,7 +111,8 @@
 
         window.onload = function(e) {
             //e.preventDefault();
-            socket.emit("chat message" + fields, text.innerText + "がログインしました。");
+            const field = document.getElementById("field");
+            socket.emit("chat message" + field, text.innerText + "がログインしました。");
         };
         
         
