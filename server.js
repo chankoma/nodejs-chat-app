@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 
 app.post("/login", (req, res) => {
 	for (let i = 1; i < chat_fields + 1; i++) {
-		if (req.body.PASS === process.env.login_pass_ + i) {
+		if (req.body.PASS === process.env.login_pass_1) {
 			res.render("index", {data : req.body.ID});
 		};
 	};
