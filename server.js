@@ -27,7 +27,7 @@ app.post("/login", (req, res) => {
 			res.render("index", {data : req.body.ID, fields : i, mess : message[i]});
 		};
 	};
-
+        res.send("miss");
 });
 
 io.on("connection", (socket) => {
@@ -38,7 +38,6 @@ io.on("connection", (socket) => {
 			io.emit(message[i], msg);
 		});
 	};
-        res.send("miss");
 });
 
 
