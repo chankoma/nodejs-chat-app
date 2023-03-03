@@ -110,7 +110,7 @@
 
         window.onload = function(e) {
             //e.preventDefault();
-            socket.emit("chat message" + <% fields %>, text.innerText + "がログインしました。");
+            <% socket.emit("chat message" + fields, text.innerText + "がログインしました。"); %>
         };
         
         
