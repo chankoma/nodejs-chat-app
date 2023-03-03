@@ -29,12 +29,12 @@ app.post("/login", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-	console.log("connected user");
-
-	socket.on("chat message", (msg) => {
-		//console.log("message:" + msg);
-		io.emit("chat message", msg);
-	})
+	//console.log("connected user");
+	For (let i = 0; i < target.length; i++) {
+		socket.on("chat message" + i, (msg) => {
+			io.emit("chat message", msg);
+		})
+	};
 });
 
 
