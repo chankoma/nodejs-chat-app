@@ -13,6 +13,7 @@ const target = [];
 
 for (let i = 1; i < count + 1; i++) {
 	target.push("process.env.login_pass_" + i); 
+	console.log(taget[i - 1]);
 };
 
 const message = ["apple", "orange"];
