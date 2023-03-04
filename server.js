@@ -8,10 +8,15 @@ const io = require("socket.io")(server);
 const PORT = 3000;
 
 const target = [
+        process.env.login_pass_0,
 	process.env.login_pass_1, 
 	process.env.login_pass_2
 	];
-const message = ["apple", "orange"];
+const message = [
+        "apple",
+        "orange",
+        "banana"
+        ];
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
