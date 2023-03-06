@@ -6,7 +6,17 @@ const http = require("http");
 const server = http.createServer(app);
 const io = require("socket.io")(server);
 const PORT = 3000;
-const login_pass = "chankoma";
+
+const target = [
+    process.env.login_pass_0,
+	process.env.login_pass_1, 
+	process.env.login_pass_2
+	];
+const message = [
+        "apple",
+        "orange",
+        "banana"
+        ];
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -17,21 +27,22 @@ app.get("/", (req, res) => {
 });
 
 app.post("/login", (req, res) => {
-	if (req.body.PASS === login_pass) {
-		//res.sendFile(__dirname + "/index.html");
-		res.render("index", {data : req.body.ID});
-	}else{
-		res.send("miss!");
+	for (let i = 0; i < target.length; i++) {
+		if (req.body.ID && req.body.PASS === target[i]) {
+			res.render("index", {data : req.body.ID, mess : message[i]});
+		};
 	};
+        res.send("miss");
 });
 
 io.on("connection", (socket) => {
 	console.log("connected user");
-
-	socket.on("chat message", (msg) => {
-		//console.log("message:" + msg);
-		io.emit("chat message", msg);
-	})
+	for (let i = 0; i < message.length; i++) {
+		socket.on(message[i], (msg) => {
+			console.log(msg);
+			io.emit(message[i], msg);
+		});
+	};
 });
 
 
